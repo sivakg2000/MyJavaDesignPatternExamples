@@ -123,6 +123,21 @@ public class MainSingleton {
 
 		System.out.println("LSWS I "+singleLSWSObj.hashCode());
 		System.out.println("LSWS I "+singleLSWSObj1.hashCode());
+		
+		
+		
+		SingletonLazyInitPreveentCloneSupport singleLCNSObj=SingletonLazyInitPreveentCloneSupport.getInstance();
+		SingletonLazyInitPreveentCloneSupport singleLCNSObj1=null;
+		try {
+			 singleLCNSObj1=(SingletonLazyInitPreveentCloneSupport) singleLCNSObj.clone();
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+		System.out.println("LCNS I "+singleLCNSObj.hashCode());
+		System.out.println("LCNS I "+singleLCNSObj1.hashCode());
 
 	}
 }

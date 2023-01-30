@@ -1,11 +1,16 @@
-package com.sivakg.examples.dp.creational;
+package com.sivakg.examples.dp.creational.singleton;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class MainCreationalMain {
+public class MainSingleton {
 
 	public static void main(String arg[]) {
 		SingletonEagerInit singleEObj=SingletonEagerInit.getInstance();
@@ -68,6 +73,56 @@ public class MainCreationalMain {
 		System.out.println("EN I "+singleENObj.hashCode());
 		System.out.println("EN I "+singleENObj1.hashCode());
 
+		
+		SingletonLazyInitSerSupport singleLSWSObj=SingletonLazyInitSerSupport.getInstance();
+		SingletonLazyInitSerSupport singleLSWSObj1=null;
+		
+		
+		
+		ObjectOutputStream objOS=null;
+		ObjectInputStream objIS=null;
+		
+		try {
+			objOS=new ObjectOutputStream(new FileOutputStream("singletonobj.ser"));
+			objOS.writeObject(singleLSWSObj);
+			
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(objOS!=null)
+				try {
+					objOS.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		
+		
+		try {
+			objIS=new ObjectInputStream(new FileInputStream("singletonobj.ser"));
+			Object readObj=objIS.readObject();
+			singleLSWSObj1=(SingletonLazyInitSerSupport)readObj;
+			 
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			if(objOS!=null)
+				try {
+					objOS.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		
+		
+		
+		
+		
+
+		System.out.println("LSWS I "+singleLSWSObj.hashCode());
+		System.out.println("LSWS I "+singleLSWSObj1.hashCode());
 
 	}
 }

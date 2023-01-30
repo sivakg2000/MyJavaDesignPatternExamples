@@ -1,4 +1,4 @@
-package com.sivakg.examples.dp.creational;
+package com.sivakg.examples.dp.creational.singleton;
 
 public class SingletonStaticInit {
  

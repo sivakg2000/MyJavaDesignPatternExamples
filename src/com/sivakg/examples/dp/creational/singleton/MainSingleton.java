@@ -10,6 +10,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 
+ * @author skaruppiah
+ *
+ */
 public class MainSingleton {
 
 	public static void main(String arg[]) {

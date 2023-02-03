@@ -24,6 +24,14 @@ public class MainComposite {
 		sProvier.addService(new AdminService());
 		
 		sProvier.service("Logout Service");
+		
+		
+		sProvier.clearService();
+		
+		
+		sProvier.service("Update Service");
 	}
+	
+	
 
 }

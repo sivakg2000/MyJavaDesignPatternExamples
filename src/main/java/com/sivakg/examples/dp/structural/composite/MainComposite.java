@@ -18,6 +18,12 @@ public class MainComposite {
 		sProvier.addService(adminService);
 		
 		sProvier.service("Registration Service");
+		
+		sProvier.deletService(emp2Service);
+		
+		sProvier.addService(new AdminService());
+		
+		sProvier.service("Logout Service");
 	}
 
 }

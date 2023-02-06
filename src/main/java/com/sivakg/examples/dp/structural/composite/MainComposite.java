@@ -25,7 +25,6 @@ public class MainComposite {
 		
 		sProvier.service("Logout Service");
 		
-		
 		sProvier.clearService();
 		
 		

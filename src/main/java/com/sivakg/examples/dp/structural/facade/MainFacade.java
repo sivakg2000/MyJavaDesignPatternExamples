@@ -5,6 +5,7 @@ import java.sql.Connection;
 import com.sivakg.examples.dp.structural.facade.impl.ExcelReportImpl;
 import com.sivakg.examples.dp.structural.facade.impl.HTMLReportImpl;
 import com.sivakg.examples.dp.structural.facade.impl.PDFReportImpl;
+import com.sivakg.examples.dp.structural.facade.impl.ReportFacade;
 
 public class MainFacade {
 
@@ -23,7 +24,10 @@ public class MainFacade {
 		excelReport.generateExcelReport(con, tableName);
 		
 		
-		
+		ReportFacade reportFacade=new ReportFacade();
+		reportFacade.generatePDFReport(con, tableName);
+		reportFacade.generateHTMLReport(con, tableName);
+		reportFacade.generateExcelReport(con, tableName);
 		
 	}
 

@@ -10,10 +10,10 @@ public class MainDecorator {
 		
 		Bike basicBike=new BasicBike();
 		basicBike.assembleBike();
-		Bike sportsBike=new SportsBike(basicBike);
+		Bike sportsBike=new SportsBike(new BasicBike());
 		sportsBike.assembleBike();
 		
-		Bike spLuxBike=new LuxuryBike(sportsBike);
+		Bike spLuxBike=new LuxuryBike(new SportsBike(new BasicBike()));
 		spLuxBike.assembleBike();
 
 	}
